@@ -287,6 +287,7 @@ exports.up = (knex) => {
                   {
                     league_name: c.name,
                     external_id: c.key,
+                    external_sport_id: sport.key,
                   },
                   identity
                 )
@@ -296,11 +297,16 @@ exports.up = (knex) => {
         }
         await knex("leagues").insert(leagues);
         console.log("leagues inserted");
-        const {
-          data: { events },
-        } = await axios.get(
-          "https://api-usa-uat.pointsbet.com/api/v2/competitions/320/events/featured?includeLive=true"
-        );
+        const events = [];
+        for (let league of leagues) {
+          const {
+            data: { events: leagueEvents },
+          } = await axios.get(
+            `https://api-usa-uat.pointsbet.com/api/v2/competitions/${league.external_id}/events/featured?includeLive=true`
+          );
+          events.push(...leagueEvents);
+        }
+
         await knex("events").insert(
           events.map(
             (event) =>
