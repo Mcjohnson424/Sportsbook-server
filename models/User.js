@@ -24,10 +24,6 @@ class User extends Model {
           enum: ["active", "banned"],
         },
         profileImageUrl: { type: ["string", "null"], format: "uri-reference" },
-        birthDate: {
-          type: ["string", "null"],
-          format: "date",
-        },
         role: {
           enum: ["admin", "user"],
         },
