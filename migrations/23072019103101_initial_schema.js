@@ -1,3 +1,10 @@
+const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
+const pickBy = require("lodash/pickBy");
+const identity = require("lodash/identity");
+const parse = require("csv-parse");
+
 exports.up = (knex) => {
   return knex.schema
     .raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
@@ -245,6 +252,141 @@ exports.up = (knex) => {
         .inTable("accounts")
         .onDelete("CASCADE")
         .index();
+    })
+    .then(async () => {
+      try {
+        const {
+          data: { sports },
+        } = await axios.get(
+          "https://api-usa-uat.pointsbet.com/api/v2/sports/list/02May2018"
+        );
+        await knex("sports").insert(
+          sports.map((sport) =>
+            pickBy(
+              {
+                sport_name: sport.name,
+                external_id: sport.key,
+              },
+              identity
+            )
+          )
+        );
+        console.log("sports inserted");
+        const leagues = [];
+        for (let sport of sports) {
+          const {
+            data: { locales },
+          } = await axios.get(
+            `https://api-usa-uat.pointsbet.com/api/v2/sports/${sport.key}/competitions`
+          );
+          locales.forEach((locale) => {
+            const { competitions } = locale;
+            leagues.push(
+              ...competitions.map((c) =>
+                pickBy(
+                  {
+                    league_name: c.name,
+                    external_id: c.key,
+                  },
+                  identity
+                )
+              )
+            );
+          });
+        }
+        await knex("leagues").insert(leagues);
+        console.log("leagues inserted");
+        const {
+          data: { events },
+        } = await axios.get(
+          "https://api-usa-uat.pointsbet.com/api/v2/competitions/320/events/featured?includeLive=true"
+        );
+        await knex("events").insert(
+          events.map(
+            (event) =>
+              pickBy({
+                external_id: event.key,
+                event_name: event.name,
+                external_league_id: event.competitionKey,
+                external_sport_id: event.sportKey,
+                event_date_time: event.startsAt,
+                home_team: event.homeTeam,
+                away_team: event.awayTeam,
+              }),
+            identity
+          )
+        );
+        console.log("events inserted");
+      } catch (e) {
+        console.log(e);
+      }
+    })
+    .then(async () => {
+      try {
+        const csvPromise = (cPath) =>
+          new Promise((resolve, reject) => {
+            fs.readFile(cPath, (err, fileData) => {
+              if (err) return reject(err);
+
+              parse(fileData, { columns: true }, (parseErr, rows) => {
+                if (parseErr) return reject(parseErr);
+
+                resolve(rows);
+              });
+            });
+          });
+        const betCategoriesPath = path.join(
+          __dirname,
+          "../seeds/bet_categories.csv"
+        );
+        const betTypesPath = path.join(__dirname, "../seeds/bet_types.csv");
+        const resultsPath = path.join(__dirname, "../seeds/results.csv");
+        const sportsbooksPath = path.join(
+          __dirname,
+          "../seeds/sportsbooks.csv"
+        );
+        const statesPath = path.join(__dirname, "../seeds/states.csv");
+        const statusPath = path.join(__dirname, "../seeds/status.csv");
+
+        const betCategories = (
+          await csvPromise(betCategoriesPath)
+        ).map((betCategory) => pickBy(betCategory, identity));
+        const betTypes = (await csvPromise(betTypesPath)).map((b) =>
+          pickBy(b, identity)
+        );
+        const results = (await csvPromise(resultsPath)).map((b) =>
+          pickBy(b, identity)
+        );
+        const states = (await csvPromise(statesPath)).map((b) =>
+          pickBy(b, identity)
+        );
+        const status = (await csvPromise(statusPath)).map((b) =>
+          pickBy(b, identity)
+        );
+        await knex("bet_categories").insert(betCategories);
+        console.log("bet categories inserted");
+        await knex("bet_types").insert(betTypes);
+        console.log("bet types inserted");
+        await knex("results").insert(results);
+        console.log("results inserted");
+        const insertedStates = await knex("states")
+          .insert(states)
+          .returning(["id"]);
+        console.log("states inserted");
+        const sportsbooks = (await csvPromise(sportsbooksPath)).map((b) => {
+          return pickBy(
+            { ...b, state_id: insertedStates[b.state_id - 1].id },
+            identity
+          );
+        });
+        await knex("sportsbooks").insert(sportsbooks);
+        console.log("sportsbooks inserted");
+
+        await knex("status").insert(status);
+        console.log("status inserted");
+      } catch (e) {
+        console.log(e);
+      }
     });
 };
 
