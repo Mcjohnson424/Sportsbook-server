@@ -1,4 +1,5 @@
 const Model = require("./BaseModel");
+const Sportsbook = require("./Sportsbook");
 
 class User extends Model {
   // Table name is the only required property.
@@ -12,27 +13,46 @@ class User extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["id", "email", "fullName"],
+      required: [],
 
       properties: {
-        id: { type: "string" },
-        fullName: { type: ["string", "null"], minLength: 1, maxLength: 255 },
+        id: { type: ["string", "null"] },
+        first_name: { type: ["string", "null"], minLength: 1, maxLength: 255 },
+        last_name: { type: ["string", "null"], minLength: 1, maxLength: 255 },
+        pw: { type: ["string","null"] },
         email: { type: "string", format: "email" },
-        phone: { type: ["string", "null"] },
-        status: {
-          type: ["string", "null"],
-          enum: ["active", "banned"],
-        },
-        profileImageUrl: { type: ["string", "null"], format: "uri-reference" },
-        birthDate: {
-          type: ["string", "null"],
-          format: "date",
-        },
-        role: {
-          enum: ["admin", "user"],
-        },
-        customerId: { type: ["string", "null"] },
+        created_at: { type: ["string", "null"] },
+        last_login: { type: ["string", "null"] },
+
       },
+    };
+  }
+  static get relationMappings() {
+    const Sportsbook = require("./Sportsbook");
+    const Account = require("./Account");
+    return {
+      accounts: {
+        relation: Model.HasManyRelation,
+        modelClass: Account,
+        join: {
+          from: "users.id",
+          to: "accounts.user_id"
+        }
+      },
+      sportsbooks: {
+        relation: Model.ManyToManyRelation,
+        modelClass: Sportsbook,
+        join: {
+          from: "accounts.id",
+          through: {
+        
+            from: "accounts.account_id",
+            to: "accounts.sportsbook_id",
+            extra: ["quantity", "installed"]
+          },
+          to: "sportsbooks.id"
+        }
+      }
     };
   }
 }
