@@ -11,14 +11,14 @@ const returning = "*";
  * @return {Object}
  * */
 function getAccountById(accountId, query = {}) {
-    const q = AccountModel.query().findById(accountId).returning(returning);
-    if (query) {
-        const { eager } = query;
-        if (eager) {
-            q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
-        }
+  const q = AccountModel.query().findById(accountId).returning(returning);
+  if (query) {
+    const { eager } = query;
+    if (eager) {
+      q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
     }
-    return q;
+  }
+  return q;
 }
 
 /**
@@ -29,14 +29,14 @@ function getAccountById(accountId, query = {}) {
  * @return {Object}
  * */
 function getAccountByEmail(email, query = {}) {
-    const q = AccountModel.query().findOne("email", email).returning(returning);
-    if (query) {
-        const { eager } = query;
-        if (eager) {
-            q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
-        }
+  const q = AccountModel.query().findOne("email", email).returning(returning);
+  if (query) {
+    const { eager } = query;
+    if (eager) {
+      q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
     }
-    return q;
+  }
+  return q;
 }
 
 /**
@@ -47,11 +47,12 @@ function getAccountByEmail(email, query = {}) {
  * @return {Object}
  * */
 async function createAccount(account, query = {}) {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(account.hashed_pw, salt);
-    return AccountModel.query()
-        .insert({ ...account, hashed_pw: hash })
-        .returning("*");
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(account.hashed_pw, salt);
+  console.log({ ...account, hashed_pw: hash });
+  return AccountModel.query()
+    .insert({ ...account, hashed_pw: hash })
+    .returning("*");
 }
 
 /**
@@ -62,13 +63,16 @@ async function createAccount(account, query = {}) {
  * @return {Object}
  * */
 async function updateAccountById(accountId, account) {
-    if (account.hashed_pw) {
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(account.hashed_pw, salt);
-        account.hashed_pw = hash;
-    }
-    const q = AccountModel.query().findById(accountId).patch(account).returning("*");
-    return q;
+  if (account.hashed_pw) {
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(account.hashed_pw, salt);
+    account.hashed_pw = hash;
+  }
+  const q = AccountModel.query()
+    .findById(accountId)
+    .patch(account)
+    .returning("*");
+  return q;
 }
 
 /**
@@ -79,10 +83,10 @@ async function updateAccountById(accountId, account) {
  * @return {Object}
  * */
 async function vefifyAccountPasswordById(accountId, password) {
-    const q = AccountModel.query().findById(accountId);
-    const account = await q;
-    const verified = await bcrypt.compare(password, account.password);
-    return verified;
+  const q = AccountModel.query().findById(accountId);
+  const account = await q;
+  const verified = await bcrypt.compare(password, account.password);
+  return verified;
 }
 
 /**
@@ -93,20 +97,21 @@ async function vefifyAccountPasswordById(accountId, password) {
  * @return {Object}
  * */
 function getAccountsByUserId(user_id, query = {}) {
-    const q = AccountModel.query().where("user_id", user_id).returning(returning);
-    if (query) {
-        const { eager } = query;
-        if (eager) {
-            q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
-        }
+  const q = AccountModel.query().where("user_id", user_id).returning(returning);
+  if (query) {
+    const { eager } = query;
+    if (eager) {
+      q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
     }
-    return q;
+  }
+  return q;
 }
 
 module.exports = {
-    createAccount,
-    getAccountById,
-    updateAccountById,
-    getAccountByEmail,
-    vefifyAccountPasswordById,getAccountsByUserId
+  createAccount,
+  getAccountById,
+  updateAccountById,
+  getAccountByEmail,
+  vefifyAccountPasswordById,
+  getAccountsByUserId,
 };

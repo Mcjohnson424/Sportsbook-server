@@ -46,12 +46,12 @@ module.exports = async () => {
   // Celebrate (Joi) Error Handling
   server.use(errors());
 
-  /*
+
   const root = require("path").join(__dirname, "client", "build");
   server.use(express.static(root));
   server.get("/*", async (req, res) => {
     res.sendFile("index.html", { root });
-  });*/
+  });
 
   await db.migrate.latest();
 

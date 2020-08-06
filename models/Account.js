@@ -44,7 +44,7 @@ class Account extends Model {
         modelClass: Sportsbook,
         join: {
           from: "accounts.sportsbook_id",
-          to: "sportsboorks.id"
+          to: "sportsbooks.id"
         }
       }
      

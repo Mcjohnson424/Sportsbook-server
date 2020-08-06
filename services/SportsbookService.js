@@ -8,5 +8,5 @@ const SportsbookModel = require("../models/Sportsbook");
  * */ 
 
 exports.getSportsbooks = function getSportsbooks() {
-    return Sportsbook.query();
+    return SportsbookModel.query();
   };

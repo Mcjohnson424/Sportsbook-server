@@ -14,7 +14,7 @@ exports.up = (knex) => {
       table.string("pw");
       table.string("first_name");
       table.string("last_name");
-      table.timestamp("created_at");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("last_login");
     })
     .createTable("states", (table) => {
@@ -41,7 +41,7 @@ exports.up = (knex) => {
       table.string("state");
       table.string("username");
       table.string("hashed_pw");
-      table.timestamp("created_at");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("last_check");
       table
         .string("user_id")
