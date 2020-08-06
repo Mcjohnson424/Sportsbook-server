@@ -4,7 +4,7 @@ const UserService = require("./services/UserService");
 
 module.exports = {
   verifyTokenAndCookie: async function verifyToken(req, res, next) {
-    const sessionCookie = req.cookies.session_fancify;
+    const sessionCookie = req.cookies.session_web_aggregator;
     const authorization = req.header("Authorization");
 
     // If using authorisation header or cookie
@@ -50,31 +50,20 @@ module.exports = {
     const { id } = res.locals.tokenUser;
 
     try {
-      const userRecord = await UserService.getUserById(id, {
-        eager: ["subscriptions.plan"],
-      });
+      const userRecord = await UserService.getUserById(id);
       if (!userRecord) {
         const internalUser = await UserService.createUser(
           FirebaseService.parseUser(res.locals.tokenUser)
         );
-        const userRecord = await UserService.getUserById(id, {
-          eager: ["subscriptions.plan"],
-        });
+        const userRecord = await UserService.getUserById(id);
         user = userRecord;
       } else {
         user = userRecord;
-      }
-      if (user.subscriptions && user.subscriptions.length > 0) {
-        const subscription = user.subscriptions.find(
-          (s) => s.status === "active"
-        );
-        if (subscription) user.plan = subscription.plan;
       }
       // Attach and call next
       res.locals.user = {
         ...user,
         provider: res.locals.tokenUser.firebase.sign_in_provider,
-        emailVerified: res.locals.tokenUser.email_verified,
       };
 
       return next();

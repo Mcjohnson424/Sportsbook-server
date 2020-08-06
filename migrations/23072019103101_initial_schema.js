@@ -9,7 +9,7 @@ exports.up = (knex) => {
   return knex.schema
     .raw('CREATE EXTENSION IF NOT EXISTS "uuid-ossp"')
     .createTable("users", (table) => {
-      table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+      table.string("id").primary();
       table.string("email");
       table.string("pw");
       table.string("first_name");
@@ -44,7 +44,7 @@ exports.up = (knex) => {
       table.timestamp("created_at");
       table.timestamp("last_check");
       table
-        .uuid("user_id")
+        .string("user_id")
         .unsigned()
         .references("id")
         .inTable("users")
@@ -239,7 +239,7 @@ exports.up = (knex) => {
         .onDelete("CASCADE")
         .index();
       table
-        .uuid("user_id")
+        .string("user_id")
         .unsigned()
         .references("id")
         .inTable("users")
