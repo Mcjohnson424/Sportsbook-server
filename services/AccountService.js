@@ -1,15 +1,7 @@
 const bcrypt = require("bcrypt");
 const AccountModel = require("../models/Account");
 
-const returning = [
-    "id",
-    "name",
-    "email",
-    "date_created",
-    "last_active",
-    "permission",
-    "account_id",
-];
+const returning = "*";
 
 /**
  * Get account by id
@@ -93,10 +85,28 @@ async function vefifyAccountPasswordById(accountId, password) {
     return verified;
 }
 
+/**
+ * Get accounts by user id
+ *
+ * @param {String} userId user id
+ * @param {Object} query The object containing query filters
+ * @return {Object}
+ * */
+function getAccountsByUserId(user_id, query = {}) {
+    const q = AccountModel.query().where("user_id", user_id).returning(returning);
+    if (query) {
+        const { eager } = query;
+        if (eager) {
+            q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
+        }
+    }
+    return q;
+}
+
 module.exports = {
     createAccount,
     getAccountById,
     updateAccountById,
     getAccountByEmail,
-    vefifyAccountPasswordById,
+    vefifyAccountPasswordById,getAccountsByUserId
 };
