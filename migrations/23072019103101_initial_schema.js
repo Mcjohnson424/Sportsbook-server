@@ -17,6 +17,11 @@ exports.up = (knex) => {
       table.timestamp("created_at").defaultTo(knex.fn.now());
       table.timestamp("last_login");
     })
+    .createTable("sportsbook_parents", (table) => {
+      table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+      table.string("sportsbook_parent_name");
+      table.string("state_abbrev");
+    })
     .createTable("states", (table) => {
       table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
       table.string("state_name");
@@ -35,6 +40,7 @@ exports.up = (knex) => {
         .inTable("states")
         .onDelete("CASCADE")
         .index();
+      
     })
     .createTable("accounts", (table) => {
       table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
@@ -66,6 +72,24 @@ exports.up = (knex) => {
       table.string("draftkings_id");
       table.string("pointbet_id");
       table.string("williamhill_id");
+    })
+    .createTable("bet_subtypes", (table) => {
+      table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+      table.string("bet_subtype_name");
+      table
+        .uuid("sportsbook_parent_id")
+        .unsigned()
+        .references("id")
+        .inTable("sportsbook_parents")
+        .onDelete("CASCADE")
+        .index();
+      table
+        .uuid("bet_type_id")
+        .unsigned()
+        .references("id")
+        .inTable("bet_types")
+        .onDelete("CASCADE")
+        .index();
     })
     .createTable("bet_categories", (table) => {
       table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
