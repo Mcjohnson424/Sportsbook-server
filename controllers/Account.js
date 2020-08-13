@@ -53,6 +53,42 @@ module.exports.updateAccountById = {
     }
   },
 };
+module.exports.deleteAccountById = {
+  validator: celebrate({
+    params: {
+      accountId: Joi.string().required()
+    }
+  }),
+  controller: function deleteAccountById(req, res) {
+    const { accountId } = req.params;
+    AccountService.deleteAccountById(accountId)
+      .then(response => {
+        res.json(response);
+      })
+      .catch(error => {
+        req.log.error(error);
+        res.boom.badImplementation("Failed to delete account");
+      });
+  }
+};
+module.exports.getAccountById = {
+  validator: celebrate({
+    params: {
+      accountId: Joi.string().required()
+    }
+  }),
+  controller: function getAccountById(req, res) {
+    const { accountId } = req.params;
+    AccountService.getAccountById(accountId)
+      .then(response => {
+        res.json(response);
+      })
+      .catch(error => {
+        req.log.error(error);
+        res.boom.badImplementation("Failed to load account");
+      });
+  }
+};
 module.exports.getAccountsByUserId = {
   validator: celebrate({
     params: {

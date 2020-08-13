@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const AccountModel = require("../models/Account");
+const Account = require("../models/Account");
 
 const returning = "*";
 
@@ -20,7 +21,28 @@ function getAccountById(accountId, query = {}) {
   }
   return q;
 }
+/*Delete account
+exports.deleteAccountById = function(accountId) {
+  return Account.query().deleteById(accountId);
+};*/
 
+/**
+ * Delete account by id
+ *
+ * @param {String} accountId Internal account
+ * @param {Object} query The object containing query filters
+ * @return {Object}
+ * */
+function deleteAccountById(accountId, query = {}) {
+  const q = AccountModel.query().deleteById(accountId).returning(returning);
+  if (query) {
+    const { eager } = query;
+    if (eager) {
+      q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
+    }
+  }
+  return q
+}
 /**
  * Get account by email
  *
@@ -114,4 +136,5 @@ module.exports = {
   getAccountByEmail,
   vefifyAccountPasswordById,
   getAccountsByUserId,
+  deleteAccountById
 };
