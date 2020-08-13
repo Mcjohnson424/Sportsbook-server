@@ -33,9 +33,11 @@ module.exports.createAccount = {
 module.exports.updateAccountById = {
   validator: celebrate({
     body: Joi.object().required().keys({
-      id: Joi.string(),
+     // id: Joi.string(),
       username: Joi.string(),
-      email: Joi.string(),
+      hashed_pw: Joi.string().required(),
+      state: Joi.string(),
+      sportsbook_id: Joi.string().required(),
     }),
     params: Joi.object()
       .required()
@@ -43,7 +45,7 @@ module.exports.updateAccountById = {
   }),
   controller: async function updateAccountById(req, res) {
     const { body, params } = req;
-    const { AccountId } = params;
+    const { accountId } = params;
     try {
       const response = await AccountService.updateAccountById(accountId, body);
       return res.json(response);
