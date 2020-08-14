@@ -47,11 +47,11 @@ function getAccountByEmail(email, query = {}) {
  * @return {Object}
  * */
 async function createAccount(account, query = {}) {
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(account.hashed_pw, salt);
-  console.log({ ...account, hashed_pw: hash });
+  //const salt = await bcrypt.genSalt(10);
+ // const hash = await bcrypt.hash(account.hashed_pw, salt);
+  //console.log({ ...account, hashed_pw: hash });
   return AccountModel.query()
-    .insert({ ...account, hashed_pw: hash })
+    .insert({ ...account, /*hashed_pw: hash*/ })
     .returning("*");
 }
 
