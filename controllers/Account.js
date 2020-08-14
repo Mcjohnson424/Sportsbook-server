@@ -33,9 +33,11 @@ module.exports.createAccount = {
 module.exports.updateAccountById = {
   validator: celebrate({
     body: Joi.object().required().keys({
-      id: Joi.string(),
+     // id: Joi.string(),
       username: Joi.string(),
-      email: Joi.string(),
+      hashed_pw: Joi.string().required(),
+      state: Joi.string(),
+      sportsbook_id: Joi.string().required(),
     }),
     params: Joi.object()
       .required()
@@ -43,7 +45,7 @@ module.exports.updateAccountById = {
   }),
   controller: async function updateAccountById(req, res) {
     const { body, params } = req;
-    const { AccountId } = params;
+    const { accountId } = params;
     try {
       const response = await AccountService.updateAccountById(accountId, body);
       return res.json(response);
@@ -52,6 +54,42 @@ module.exports.updateAccountById = {
       res.boom.badImplementation("Failed to load account");
     }
   },
+};
+module.exports.deleteAccountById = {
+  validator: celebrate({
+    params: {
+      accountId: Joi.string().required()
+    }
+  }),
+  controller: function deleteAccountById(req, res) {
+    const { accountId } = req.params;
+    AccountService.deleteAccountById(accountId)
+      .then(response => {
+        res.json(response);
+      })
+      .catch(error => {
+        req.log.error(error);
+        res.boom.badImplementation("Failed to delete account");
+      });
+  }
+};
+module.exports.getAccountById = {
+  validator: celebrate({
+    params: {
+      accountId: Joi.string().required()
+    }
+  }),
+  controller: function getAccountById(req, res) {
+    const { accountId } = req.params;
+    AccountService.getAccountById(accountId)
+      .then(response => {
+        res.json(response);
+      })
+      .catch(error => {
+        req.log.error(error);
+        res.boom.badImplementation("Failed to load account");
+      });
+  }
 };
 module.exports.getAccountsByUserId = {
   validator: celebrate({
