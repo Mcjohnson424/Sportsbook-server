@@ -86,9 +86,9 @@ async function createAccount(account, query = {}) {
  * */
 async function updateAccountById(accountId, account) {
   if (account.hashed_pw) {
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(account.hashed_pw, salt);
-    account.hashed_pw = hash;
+   // const salt = await bcrypt.genSalt(10);
+    //const hash = await bcrypt.hash(account.hashed_pw, salt);
+    //account.hashed_pw = hash;
   }
   const q = AccountModel.query()
     .findById(accountId)

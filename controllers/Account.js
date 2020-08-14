@@ -33,7 +33,6 @@ module.exports.createAccount = {
 module.exports.updateAccountById = {
   validator: celebrate({
     body: Joi.object().required().keys({
-     // id: Joi.string(),
       username: Joi.string(),
       hashed_pw: Joi.string().required(),
       state: Joi.string(),
@@ -58,38 +57,38 @@ module.exports.updateAccountById = {
 module.exports.deleteAccountById = {
   validator: celebrate({
     params: {
-      accountId: Joi.string().required()
-    }
+      accountId: Joi.string().required(),
+    },
   }),
   controller: function deleteAccountById(req, res) {
     const { accountId } = req.params;
     AccountService.deleteAccountById(accountId)
-      .then(response => {
+      .then((response) => {
         res.json(response);
       })
-      .catch(error => {
+      .catch((error) => {
         req.log.error(error);
         res.boom.badImplementation("Failed to delete account");
       });
-  }
+  },
 };
 module.exports.getAccountById = {
   validator: celebrate({
     params: {
-      accountId: Joi.string().required()
-    }
+      accountId: Joi.string().required(),
+    },
   }),
   controller: function getAccountById(req, res) {
     const { accountId } = req.params;
     AccountService.getAccountById(accountId)
-      .then(response => {
+      .then((response) => {
         res.json(response);
       })
-      .catch(error => {
+      .catch((error) => {
         req.log.error(error);
         res.boom.badImplementation("Failed to load account");
       });
-  }
+  },
 };
 module.exports.getAccountsByUserId = {
   validator: celebrate({

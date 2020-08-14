@@ -10,9 +10,7 @@ const pick = require("lodash/pick");
 function parseUser(user) {
   return {
     email: user.email,
-    phone: user.phoneNumber,
     id: user.id,
-    fullName: user.displayName || user.name,
   };
 }
 
