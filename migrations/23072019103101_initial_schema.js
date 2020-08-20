@@ -133,13 +133,15 @@ exports.up = (knex) => {
       table.string("external_id");
       table.string("external_sport_id");
       table.string("fanduel_id");
+
+      
       table.string("draftkings_id");
       table.string("pointbet_id");
       table.string("williamhill_id");
     })
     .createTable("bet_targets", (table) => {
       table.uuid("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
-      table.string("target_name");
+      table.string("bet_target_name");
       table.string("external_id");
       table.string("league_name");
       table.string("fanduel_id");

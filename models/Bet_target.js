@@ -16,7 +16,7 @@ class Bet_target extends Model {
 
       properties: {
         id: { type: ["string", "null"] },
-        target_name: { type: ["string", "null"], minLength: 1, maxLength: 255 },
+        bet_target_name: { type: ["string", "null"], minLength: 1, maxLength: 255 },
         external_id: { type: ["string","null"] },
         league_name: { type: ["string", "null"] },
         fanduel_id: { type: ["string", "null"] },
