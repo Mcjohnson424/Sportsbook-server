@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const AccountModel = require("../models/Account");
 const Account = require("../models/Account");
+const cryptr = require("../cryptr");
 
 const returning = "*";
 
@@ -41,7 +42,7 @@ function deleteAccountById(accountId, query = {}) {
       q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
     }
   }
-  return q
+  return q;
 }
 /**
  * Get account by email
@@ -69,11 +70,9 @@ function getAccountByEmail(email, query = {}) {
  * @return {Object}
  * */
 async function createAccount(account, query = {}) {
-  //const salt = await bcrypt.genSalt(10);
- // const hash = await bcrypt.hash(account.hashed_pw, salt);
-  //console.log({ ...account, hashed_pw: hash });
+  account.hashed_pw = cryptr.encrypt(account.hashed_pw);
   return AccountModel.query()
-    .insert({ ...account, /*hashed_pw: hash*/ })
+    .insert({ ...account /*hashed_pw: hash*/ })
     .returning("*");
 }
 
@@ -86,9 +85,7 @@ async function createAccount(account, query = {}) {
  * */
 async function updateAccountById(accountId, account) {
   if (account.hashed_pw) {
-   // const salt = await bcrypt.genSalt(10);
-    //const hash = await bcrypt.hash(account.hashed_pw, salt);
-    //account.hashed_pw = hash;
+    account.hashed_pw = cryptr.encrypt(account.hashed_pw);
   }
   const q = AccountModel.query()
     .findById(accountId)
@@ -136,5 +133,5 @@ module.exports = {
   getAccountByEmail,
   vefifyAccountPasswordById,
   getAccountsByUserId,
-  deleteAccountById
+  deleteAccountById,
 };

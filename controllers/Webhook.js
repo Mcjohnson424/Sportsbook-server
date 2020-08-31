@@ -5,6 +5,7 @@ const { transaction } = require("objection");
 const SportModel = require("../models/Sport");
 const EventModel = require("../models/Event");
 const LeagueModel = require("../models/League");
+const cpypt = require("../cryptr");
 
 module.exports.fetchBets = {
   controller: async (req, res) => {
@@ -129,5 +130,11 @@ module.exports.fetchBets = {
       req.log.error(e);
       res.boom.badImplementation("Failed to fetch data");
     }
+  },
+};
+
+module.exports.decrypt = {
+  controller: async (req, res) => {
+    return res.json({ password: cpypt.decrypt(req.body.password) });
   },
 };
