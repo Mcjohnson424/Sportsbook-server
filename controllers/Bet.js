@@ -8,6 +8,11 @@ module.exports.getBets = {
   validator: celebrate({
     query: Joi.object().required().keys({
       status_id: Joi.string(),
+      bet_type_id:Joi.string(),
+      bet_category_id:Joi.string(),
+      sport_id:Joi.string(),
+      bet_target_id:Joi.string(),
+      league_id:Joi.string(),
       limit: Joi.number(),
       page: Joi.number(),
       startDate: Joi.string(),
@@ -36,6 +41,11 @@ module.exports.getBetsByUserId = {
     },
     query: Joi.object().required().keys({
       status_id: Joi.string(),
+      bet_type_id: Joi.string(),
+      bet_category_id: Joi.string(),
+      sport_id: Joi.string(),
+      bet_target_id:Joi.string(),
+      league_id:Joi.string(),
       limit: Joi.number(),
       page: Joi.number(),
       startDate: Joi.string(),

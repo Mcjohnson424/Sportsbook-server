@@ -2,9 +2,9 @@ const { celebrate, Joi: BaseJoi } = require("celebrate");
 const Joi = BaseJoi.extend(require("joi-phone-number")).extend(
   require("joi-date-extensions")
 );
-const StatusService = require("../services/StatusService");
+const BetCategoryService = require("../services/BetCategoryService");
 
-module.exports.getStatuses = {
+module.exports.getBetCategories = {
   validator: celebrate({
     query: Joi.object().required().keys({
       limit: Joi.number(),
@@ -17,13 +17,13 @@ module.exports.getStatuses = {
   controller: async function (req, res) {
     const { params, query } = req;
     try {
-      const response = await StatusService.getStatuses({
+      const response = await BetCategoryService.getBetCategories({
         ...query,
       });
       return res.json(response);
     } catch (error) {
       req.log.error(error);
-      res.boom.badImplementation("Failed to get statuses");
+      res.boom.badImplementation("Failed to get bet categories");
     }
   },
 };

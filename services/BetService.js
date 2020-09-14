@@ -52,9 +52,24 @@ async function updateBetById(betId, bet) {
 async function getBets(query = {}) {
   const q = BetModel.query().returning("*");
   if (query) {
-    const { eager, page, limit, order, sort, status_id } = query;
+    const { eager, page, limit, order, sort, status_id, bet_type_id, bet_category_id, sport_id, league_id, bet_target_id } = query;
     if (status_id) {
       q.where("status_id", status_id);
+    }
+    if (bet_type_id) {
+      q.where("bet_type_id", bet_type_id);
+    }
+    if (bet_category_id) {
+      q.where("bet_category_id", bet_category_id);
+    }
+    if (sport_id) {
+      q.where("sport_id", sport_id);
+    }
+    if (league_id) {
+      q.where("league_id", league_id);
+    }
+    if (bet_target_id) {
+      q.where("bet_target_id", bet_target_id);
     }
     if (eager) {
       q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
