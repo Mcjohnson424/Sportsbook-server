@@ -1,3 +1,4 @@
+const parseISO = require("date-fns/parseISO");
 const BetModel = require("../models/Bet");
 
 /**
@@ -52,7 +53,25 @@ async function updateBetById(betId, bet) {
 async function getBets(query = {}) {
   const q = BetModel.query().returning("*");
   if (query) {
-    const { eager, page, limit, order, sort, status_id, bet_type_id, bet_category_id, sport_id, league_id, bet_target_id } = query;
+    const {
+      eager,
+      page,
+      limit,
+      order,
+      sort,
+      status_id,
+      bet_type_id,
+      bet_category_id,
+      sport_id,
+      league_id,
+      bet_target_id,
+      startDate,
+      endDate,
+    } = query;
+    if (startDate && endDate) {
+      q.whereRaw(`date_time > '${startDate}' and date_time < '${endDate}'`);
+    }
+
     if (status_id) {
       q.where("status_id", status_id);
     }
