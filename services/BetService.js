@@ -67,11 +67,15 @@ async function getBets(query = {}) {
       bet_target_id,
       startDate,
       endDate,
+      target_id,
+      status,
     } = query;
     if (startDate && endDate) {
       q.whereRaw(`date_time > '${startDate}' and date_time < '${endDate}'`);
     }
-
+    if (status) {
+      q.where("status", status);
+    }
     if (status_id) {
       q.where("status_id", status_id);
     }
@@ -89,6 +93,9 @@ async function getBets(query = {}) {
     }
     if (bet_target_id) {
       q.where("bet_target_id", bet_target_id);
+    }
+    if (target_id) {
+      q.where("target_id", target_id);
     }
     if (eager) {
       q.eager(Array.isArray(eager) ? `[${eager.join(", ")}]` : eager);
