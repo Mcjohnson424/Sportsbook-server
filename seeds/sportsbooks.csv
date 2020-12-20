@@ -1,0 +1,103 @@
+name,state,data_endpoint,login_url,state_id
+FanDuel Sportsbook,Alabama,https://al.sportsbook.fanduel.com/CallBroker.ashx,https://account.al.sportsbook.fanduel.com/login,1
+FanDuel Sportsbook,Alaska,https://ak.sportsbook.fanduel.com/CallBroker.ashx,https://account.ak.sportsbook.fanduel.com/login,2
+FanDuel Sportsbook,Arizona,https://az.sportsbook.fanduel.com/CallBroker.ashx,https://account.az.sportsbook.fanduel.com/login,3
+FanDuel Sportsbook,Arkansas,https://ar.sportsbook.fanduel.com/CallBroker.ashx,https://account.ar.sportsbook.fanduel.com/login,4
+FanDuel Sportsbook,California,https://ca.sportsbook.fanduel.com/CallBroker.ashx,https://account.ca.sportsbook.fanduel.com/login,5
+FanDuel Sportsbook,Colorado,https://co.sportsbook.fanduel.com/CallBroker.ashx,https://account.co.sportsbook.fanduel.com/login,6
+FanDuel Sportsbook,Connecticut,https://ct.sportsbook.fanduel.com/CallBroker.ashx,https://account.ct.sportsbook.fanduel.com/login,7
+FanDuel Sportsbook,Delaware,https://de.sportsbook.fanduel.com/CallBroker.ashx,https://account.de.sportsbook.fanduel.com/login,8
+FanDuel Sportsbook,District of Columbia,https://dc.sportsbook.fanduel.com/CallBroker.ashx,https://account.dc.sportsbook.fanduel.com/login,9
+FanDuel Sportsbook,Florida,https://fl.sportsbook.fanduel.com/CallBroker.ashx,https://account.fl.sportsbook.fanduel.com/login,10
+FanDuel Sportsbook,Georgia,https://ga.sportsbook.fanduel.com/CallBroker.ashx,https://account.ga.sportsbook.fanduel.com/login,11
+FanDuel Sportsbook,Hawaii,https://hi.sportsbook.fanduel.com/CallBroker.ashx,https://account.hi.sportsbook.fanduel.com/login,12
+FanDuel Sportsbook,Idaho,https://id.sportsbook.fanduel.com/CallBroker.ashx,https://account.id.sportsbook.fanduel.com/login,13
+FanDuel Sportsbook,Illinois,https://il.sportsbook.fanduel.com/CallBroker.ashx,https://account.il.sportsbook.fanduel.com/login,14
+FanDuel Sportsbook,Indiana,https://in.sportsbook.fanduel.com/CallBroker.ashx,https://account.in.sportsbook.fanduel.com/login,15
+FanDuel Sportsbook,Iowa,https://ia.sportsbook.fanduel.com/CallBroker.ashx,https://account.ia.sportsbook.fanduel.com/login,16
+FanDuel Sportsbook,Kansas,https://ks.sportsbook.fanduel.com/CallBroker.ashx,https://account.ks.sportsbook.fanduel.com/login,17
+FanDuel Sportsbook,Kentucky,https://ky.sportsbook.fanduel.com/CallBroker.ashx,https://account.ky.sportsbook.fanduel.com/login,18
+FanDuel Sportsbook,Louisiana,https://la.sportsbook.fanduel.com/CallBroker.ashx,https://account.la.sportsbook.fanduel.com/login,19
+FanDuel Sportsbook,Maine,https://me.sportsbook.fanduel.com/CallBroker.ashx,https://account.me.sportsbook.fanduel.com/login,20
+FanDuel Sportsbook,Maryland,https://md.sportsbook.fanduel.com/CallBroker.ashx,https://account.md.sportsbook.fanduel.com/login,21
+FanDuel Sportsbook,Massachusetts,https://ma.sportsbook.fanduel.com/CallBroker.ashx,https://account.ma.sportsbook.fanduel.com/login,22
+FanDuel Sportsbook,Michigan,https://mi.sportsbook.fanduel.com/CallBroker.ashx,https://account.mi.sportsbook.fanduel.com/login,23
+FanDuel Sportsbook,Minnesota,https://mn.sportsbook.fanduel.com/CallBroker.ashx,https://account.mn.sportsbook.fanduel.com/login,24
+FanDuel Sportsbook,Mississippi,https://ms.sportsbook.fanduel.com/CallBroker.ashx,https://account.ms.sportsbook.fanduel.com/login,25
+FanDuel Sportsbook,Missouri,https://mo.sportsbook.fanduel.com/CallBroker.ashx,https://account.mo.sportsbook.fanduel.com/login,26
+FanDuel Sportsbook,Montana,https://mt.sportsbook.fanduel.com/CallBroker.ashx,https://account.mt.sportsbook.fanduel.com/login,27
+FanDuel Sportsbook,Nebraska,https://ne.sportsbook.fanduel.com/CallBroker.ashx,https://account.ne.sportsbook.fanduel.com/login,28
+FanDuel Sportsbook,Nevada,https://nv.sportsbook.fanduel.com/CallBroker.ashx,https://account.nv.sportsbook.fanduel.com/login,29
+FanDuel Sportsbook,New Hampshire,https://nh.sportsbook.fanduel.com/CallBroker.ashx,https://account.nh.sportsbook.fanduel.com/login,30
+FanDuel Sportsbook,New Jersey,https://nj.sportsbook.fanduel.com/CallBroker.ashx,https://account.nj.sportsbook.fanduel.com/login,31
+FanDuel Sportsbook,New Mexico,https://nm.sportsbook.fanduel.com/CallBroker.ashx,https://account.nm.sportsbook.fanduel.com/login,32
+FanDuel Sportsbook,New York,https://ny.sportsbook.fanduel.com/CallBroker.ashx,https://account.ny.sportsbook.fanduel.com/login,33
+FanDuel Sportsbook,North Carolina,https://nc.sportsbook.fanduel.com/CallBroker.ashx,https://account.nc.sportsbook.fanduel.com/login,34
+FanDuel Sportsbook,North Dakota,https://nd.sportsbook.fanduel.com/CallBroker.ashx,https://account.nd.sportsbook.fanduel.com/login,35
+FanDuel Sportsbook,Ohio,https://oh.sportsbook.fanduel.com/CallBroker.ashx,https://account.oh.sportsbook.fanduel.com/login,36
+FanDuel Sportsbook,Oklahoma,https://ok.sportsbook.fanduel.com/CallBroker.ashx,https://account.ok.sportsbook.fanduel.com/login,37
+FanDuel Sportsbook,Oregon,https://or.sportsbook.fanduel.com/CallBroker.ashx,https://account.or.sportsbook.fanduel.com/login,38
+FanDuel Sportsbook,Pennsylvania,https://pa.sportsbook.fanduel.com/CallBroker.ashx,https://account.pa.sportsbook.fanduel.com/login,39
+FanDuel Sportsbook,Rhode Island,https://ri.sportsbook.fanduel.com/CallBroker.ashx,https://account.ri.sportsbook.fanduel.com/login,40
+FanDuel Sportsbook,South Carolina,https://sc.sportsbook.fanduel.com/CallBroker.ashx,https://account.sc.sportsbook.fanduel.com/login,41
+FanDuel Sportsbook,South Dakota,https://sd.sportsbook.fanduel.com/CallBroker.ashx,https://account.sd.sportsbook.fanduel.com/login,42
+FanDuel Sportsbook,Tennessee,https://tn.sportsbook.fanduel.com/CallBroker.ashx,https://account.tn.sportsbook.fanduel.com/login,43
+FanDuel Sportsbook,Texas,https://tx.sportsbook.fanduel.com/CallBroker.ashx,https://account.tx.sportsbook.fanduel.com/login,44
+FanDuel Sportsbook,Utah,https://ut.sportsbook.fanduel.com/CallBroker.ashx,https://account.ut.sportsbook.fanduel.com/login,45
+FanDuel Sportsbook,Vermont,https://vt.sportsbook.fanduel.com/CallBroker.ashx,https://account.vt.sportsbook.fanduel.com/login,46
+FanDuel Sportsbook,Virginia,https://va.sportsbook.fanduel.com/CallBroker.ashx,https://account.va.sportsbook.fanduel.com/login,47
+FanDuel Sportsbook,Washington,https://wa.sportsbook.fanduel.com/CallBroker.ashx,https://account.wa.sportsbook.fanduel.com/login,48
+FanDuel Sportsbook,West Virginia,https://wv.sportsbook.fanduel.com/CallBroker.ashx,https://account.wv.sportsbook.fanduel.com/login,49
+FanDuel Sportsbook,Wisconsin,https://wi.sportsbook.fanduel.com/CallBroker.ashx,https://account.wi.sportsbook.fanduel.com/login,50
+FanDuel Sportsbook,Wyoming,https://wy.sportsbook.fanduel.com/CallBroker.ashx,https://account.wy.sportsbook.fanduel.com/login,51
+DraftKings Sportsbook,Alabama,https://gaming.draftkings.com//sites/US-AL-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,1
+DraftKings Sportsbook,Alaska,https://gaming.draftkings.com//sites/US-AK-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,2
+DraftKings Sportsbook,Arizona,https://gaming.draftkings.com//sites/US-AZ-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,3
+DraftKings Sportsbook,Arkansas,https://gaming.draftkings.com//sites/US-AR-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,4
+DraftKings Sportsbook,California,https://gaming.draftkings.com//sites/US-CA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,5
+DraftKings Sportsbook,Colorado,https://gaming.draftkings.com//sites/US-CO-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,6
+DraftKings Sportsbook,Connecticut,https://gaming.draftkings.com//sites/US-CT-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,7
+DraftKings Sportsbook,Delaware,https://gaming.draftkings.com//sites/US-DE-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,8
+DraftKings Sportsbook,District of Columbia,https://gaming.draftkings.com//sites/US-DC-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,9
+DraftKings Sportsbook,Florida,https://gaming.draftkings.com//sites/US-FL-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,10
+DraftKings Sportsbook,Georgia,https://gaming.draftkings.com//sites/US-GA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,11
+DraftKings Sportsbook,Hawaii,https://gaming.draftkings.com//sites/US-HI-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,12
+DraftKings Sportsbook,Idaho,https://gaming.draftkings.com//sites/US-ID-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,13
+DraftKings Sportsbook,Illinois,https://gaming.draftkings.com//sites/US-IL-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,14
+DraftKings Sportsbook,Indiana,https://gaming.draftkings.com//sites/US-IN-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,15
+DraftKings Sportsbook,Iowa,https://gaming.draftkings.com//sites/US-IA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,16
+DraftKings Sportsbook,Kansas,https://gaming.draftkings.com//sites/US-KS-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,17
+DraftKings Sportsbook,Kentucky,https://gaming.draftkings.com//sites/US-KY-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,18
+DraftKings Sportsbook,Louisiana,https://gaming.draftkings.com//sites/US-LA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,19
+DraftKings Sportsbook,Maine,https://gaming.draftkings.com//sites/US-ME-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,20
+DraftKings Sportsbook,Maryland,https://gaming.draftkings.com//sites/US-MD-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,21
+DraftKings Sportsbook,Massachusetts,https://gaming.draftkings.com//sites/US-MA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,22
+DraftKings Sportsbook,Michigan,https://gaming.draftkings.com//sites/US-MI-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,23
+DraftKings Sportsbook,Minnesota,https://gaming.draftkings.com//sites/US-MN-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,24
+DraftKings Sportsbook,Mississippi,https://gaming.draftkings.com//sites/US-MS-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,25
+DraftKings Sportsbook,Missouri,https://gaming.draftkings.com//sites/US-MO-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,26
+DraftKings Sportsbook,Montana,https://gaming.draftkings.com//sites/US-MT-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,27
+DraftKings Sportsbook,Nebraska,https://gaming.draftkings.com//sites/US-NE-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,28
+DraftKings Sportsbook,Nevada,https://gaming.draftkings.com//sites/US-NV-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,29
+DraftKings Sportsbook,New Hampshire,https://gaming.draftkings.com//sites/US-NH-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,30
+DraftKings Sportsbook,New Jersey,https://gaming.draftkings.com//sites/US-NJ-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,31
+DraftKings Sportsbook,New Mexico,https://gaming.draftkings.com//sites/US-NM-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,32
+DraftKings Sportsbook,New York,https://gaming.draftkings.com//sites/US-NY-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,33
+DraftKings Sportsbook,North Carolina,https://gaming.draftkings.com//sites/US-NC-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,34
+DraftKings Sportsbook,North Dakota,https://gaming.draftkings.com//sites/US-ND-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,35
+DraftKings Sportsbook,Ohio,https://gaming.draftkings.com//sites/US-OH-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,36
+DraftKings Sportsbook,Oklahoma,https://gaming.draftkings.com//sites/US-OK-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,37
+DraftKings Sportsbook,Oregon,https://gaming.draftkings.com//sites/US-OR-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,38
+DraftKings Sportsbook,Pennsylvania,https://gaming.draftkings.com//sites/US-PA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,39
+DraftKings Sportsbook,Rhode Island,https://gaming.draftkings.com//sites/US-RI-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,40
+DraftKings Sportsbook,South Carolina,https://gaming.draftkings.com//sites/US-SC-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,41
+DraftKings Sportsbook,South Dakota,https://gaming.draftkings.com//sites/US-SD-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,42
+DraftKings Sportsbook,Tennessee,https://gaming.draftkings.com//sites/US-TN-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,43
+DraftKings Sportsbook,Texas,https://gaming.draftkings.com//sites/US-TX-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,44
+DraftKings Sportsbook,Utah,https://gaming.draftkings.com//sites/US-UT-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,45
+DraftKings Sportsbook,Vermont,https://gaming.draftkings.com//sites/US-VT-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,46
+DraftKings Sportsbook,Virginia,https://gaming.draftkings.com//sites/US-VA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,47
+DraftKings Sportsbook,Washington,https://gaming.draftkings.com//sites/US-WA-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,48
+DraftKings Sportsbook,West Virginia,https://gaming.draftkings.com//sites/US-WV-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,49
+DraftKings Sportsbook,Wisconsin,https://gaming.draftkings.com//sites/US-WI-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,50
+DraftKings Sportsbook,Wyoming,https://gaming.draftkings.com//sites/US-WY-SB/api/betting/v1/bets?size=50&types=all,https://sportsbook.draftkings.com/login?returnUrlPath=/featured,51
