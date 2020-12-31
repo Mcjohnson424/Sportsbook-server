@@ -5,6 +5,10 @@ class Sportsbook extends Model {
   static get tableName() {
     return "sportsbooks";
   }
+  $beforeUpdate(opt, queryContext) {
+    return super.$beforeUpdate(opt, queryContext);
+    this.lastUpdated = new Date();
+  }
 
   // Optional JSON schema. This is not the database schema! Nothing is generated
   // based on this. This is only used for validation. Whenever a model instance
@@ -21,7 +25,7 @@ class Sportsbook extends Model {
         data_endpoint: { type: "string", format: "null" },
         login_url: { type: ["string", "null"] },
         state_id: { type: "string" },
-
+        lastUpdated: { type: "string", format: "null" },
       },
     };
     

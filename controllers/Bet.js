@@ -60,7 +60,12 @@ module.exports.getBetsByUserId = {
     const { params, query } = req;
     const { userId } = params;
     try {
-      const response = await BetService.getBets({ user_id: userId, ...query });
+      const response = await BetService.getBets({
+        user_id: userId,
+        order: "desc",
+        sort: "date_time",
+        ...query,
+      });
       return res.json(response);
     } catch (error) {
       req.log.error(error);

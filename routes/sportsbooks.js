@@ -5,9 +5,10 @@ const {
   loadInternalUserAndSync,
 } = require("../middleware");
 
-const { getSportsbooks } = require("../controllers/Sportsbook");
+const { getSportsbooks,updateSportsbookById } = require("../controllers/Sportsbook");
 
 const router = express.Router();
 
 router.get("/", getSportsbooks.controller);
+router.put("/:sportbookId", updateSportsbookById.controller);
 module.exports = router;

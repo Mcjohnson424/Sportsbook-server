@@ -83,7 +83,7 @@ class Bet extends Model {
         modelClass: Sportsbook,
         join: {
           from: "bets.sportsbook_id",
-          to: "sportsboorks.id"
+          to: "sportsbooks.id"
         }
       },
       account: {

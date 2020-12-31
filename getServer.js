@@ -26,7 +26,12 @@ module.exports = async () => {
   server.use(
     cors({
       credentials: true,
-      origin: ["http://localhost:3000", config.get("domain_url")],
+      origin: [
+        "https://www.sportsbookscout.com",
+        "http://localhost:3000",
+        config.get("domain_url"),
+        "https://track.sportsbookscout.com",
+      ],
     })
   );
 
@@ -45,7 +50,6 @@ module.exports = async () => {
   // Handle errors
   // Celebrate (Joi) Error Handling
   server.use(errors());
-
 
   const root = require("path").join(__dirname, "client", "build");
   server.use(express.static(root));
